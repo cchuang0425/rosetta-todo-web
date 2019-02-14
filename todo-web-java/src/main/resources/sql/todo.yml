@@ -1,0 +1,43 @@
+id: insert
+sql: |
+    insert into todo (
+    id, task, status)
+    values (
+    ?, ?, ?);
+---
+id: updateTask
+sql: |
+    update todo
+    set task=?
+    where id=?;
+---
+id: updateStatus
+sql: |
+    update todo
+    set status=?
+    where id=?;
+---
+id: selectByStatus
+sql: |
+    select
+    id, task, status
+    from todo
+    where status=?;
+---
+id: selectById
+sql: |
+    select
+    id, task, status
+    from todo
+    where id=?;
+---
+id: selectMaxId
+sql: |
+    select
+    max(id) as maxId
+    from todo;
+---
+id: deleteAll
+sql: |
+    delete from todo;
+---

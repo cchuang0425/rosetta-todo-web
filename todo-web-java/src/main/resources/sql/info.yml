@@ -1,0 +1,12 @@
+id: insert
+sql: |
+    insert into info (password) values (?);
+---
+id: deleteAll
+sql: |
+    delete from info;
+---
+id: selectPassword
+sql: |
+    select password from info;
+---

@@ -1,0 +1,12 @@
+id: createTodo
+sql: |
+  create table if not exists todo (
+  id INTEGER PRIMARY KEY,
+  task TEXT NOT NULL,
+  status INTEGER NOT NULL);
+---
+id: createInfo
+sql: |
+  create table if not exists info (
+  password TEXT NOT NULL);
+---
