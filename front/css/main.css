@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'Museo300-Regular';
+    src: url('/assets/museo/Museo300-Regular-webfont.woff2') format('woff2'),
+         url('/assets/museo/Museo300-Regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: '03_Tenso_Regular';
+    src: url('/assets/tenso/03_Tenso_Regular-webfont.woff2') format('woff2'),
+         url('/assets/tenso/03_Tenso_Regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+html, body, div, a, span, label, legend .pure-g {
+    font-family: "Museo300-Regular", "文泉驛微米黑", sans-serif;
+}

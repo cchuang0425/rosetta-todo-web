@@ -1,0 +1,17 @@
+.title {
+    font-size: 2em;
+}
+
+.middle {
+    display: flex;
+    height: 100vh;
+}
+
+.inside {
+    margin: 30px auto;
+    vertical-align: top;
+}
+
+.space {
+    height: 15px;
+}

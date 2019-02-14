@@ -1,0 +1,13 @@
+.middle {
+    display: flex;
+    height: 100vh;
+}
+
+.inside {
+    margin: auto;
+    vertical-align: middle;
+}
+
+.submit {
+    text-align: right;
+}
