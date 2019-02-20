@@ -22,20 +22,21 @@ sql: |
     select
     id, task, status
     from todo
-    where status=?;
----
-id: selectById
-sql: |
-    select
-    id, task, status
-    from todo
-    where id=?;
+    where status=?
+    order by id desc;
 ---
 id: selectMaxId
 sql: |
     select
     max(id) as maxId
     from todo;
+---
+id: selectId
+sql: |
+    select
+    id
+    from todo
+    where id=?;
 ---
 id: deleteAll
 sql: |

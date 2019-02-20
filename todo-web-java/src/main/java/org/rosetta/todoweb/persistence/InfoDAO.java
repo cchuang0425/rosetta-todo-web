@@ -12,10 +12,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class InfoDAO {
-    private static final String FILE_INFO = "info";
+    public static final String FILE_INFO = "info";
 
-    private static final String SQL_INSERT = "insert";
-    private static final String SQL_DELETE_ALL = "deleteAll";
+    public static final String SQL_INSERT = "insert";
+    public static final String SQL_DELETE_ALL = "deleteAll";
     private static final String SQL_SELECT_PASSWORD = "selectPassword";
 
     private static final String KEY_PASSWORD = "password";

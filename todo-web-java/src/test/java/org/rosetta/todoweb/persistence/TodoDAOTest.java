@@ -2,7 +2,9 @@ package org.rosetta.todoweb.persistence;
 
 import java.util.List;
 
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.rosetta.todoweb.domain.Todo;
@@ -19,10 +21,18 @@ public class TodoDAOTest {
     @Autowired
     private TodoDAO dao;
 
+    @Before
+    public void setUp() {
+        dao.removeAll();
+    }
+
+    @After
+    public void tearDown() {
+        dao.removeAll();
+    }
+
     @Test
     public void testFindMaxId() {
-        dao.removeAll();
-
         int id = dao.findMaxId();
 
         Assert.assertEquals(TodoDAO.INIT_ID, id);
@@ -30,8 +40,6 @@ public class TodoDAOTest {
 
     @Test
     public void testCRUD() {
-        dao.removeAll();
-
         int id = dao.findMaxId();
         testSave(id);
 
@@ -55,7 +63,7 @@ public class TodoDAOTest {
     }
 
     private void testUpdateDone(Todo task) {
-        Assert.assertTrue(dao.updateDone(task));
+        Assert.assertTrue(dao.updateDone(task.getId()));
     }
 
     private List<Todo> testFindNew() {
@@ -67,5 +75,14 @@ public class TodoDAOTest {
     private void testSave(int id) {
         Todo task = new Todo(id + 1, TEST_TASK, Todo.NEW);
         Assert.assertTrue(dao.save(task));
+    }
+
+    @Test
+    public void test$checkId() {
+        int id = dao.findMaxId();
+        testSave(id);
+
+        boolean result = dao.checkId(id + 1);
+        Assert.assertTrue(result);
     }
 }

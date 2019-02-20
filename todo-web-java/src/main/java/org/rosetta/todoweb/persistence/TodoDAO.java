@@ -20,8 +20,8 @@ public class TodoDAO {
     private static final String SQL_UPDATE_TASK = "updateTask";
     private static final String SQL_UPDATE_STATUS = "updateStatus";
     private static final String SQL_SELECT_STATUS = "selectByStatus";
-    private static final String SQL_SELECT_ID = "selectById";
     private static final String SQL_SELECT_MAX_ID = "selectMaxId";
+    private static final String SQL_SELECT_ID = "selectId";
     private static final String SQL_DELETE_ALL = "deleteAll";
 
     private static final String KEY_ID = "id";
@@ -61,15 +61,22 @@ public class TodoDAO {
         return result == 1;
     }
 
-    public boolean updateDone(Todo task) {
+    public boolean updateDone(Integer id) {
         String sql = loadSQL(SQL_UPDATE_STATUS);
-        int result = jdbcTemplate.update(sql, Todo.DONE, task.getId());
+        int result = jdbcTemplate.update(sql, Todo.DONE, id);
         return result == 1;
     }
 
     public void removeAll() {
         String sql = loadSQL(SQL_DELETE_ALL);
         jdbcTemplate.update(sql);
+    }
+
+    public boolean checkId(Integer id) {
+        String sql = loadSQL(SQL_SELECT_ID);
+        Integer acture = jdbcTemplate.query(sql, rs -> rs.next() ? rs.getInt(KEY_ID) : -1, id);
+
+        return acture.equals(id);
     }
 
     private String loadSQL(String id) {

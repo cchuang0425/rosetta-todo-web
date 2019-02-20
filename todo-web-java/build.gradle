@@ -1,17 +1,8 @@
-buildscript {
-    ext {
-        springBootVersion = '2.1.2.RELEASE'
-    }
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-    }
+plugins {
+    id 'org.springframework.boot' version '2.1.2.RELEASE'
+    id 'java'
 }
 
-apply plugin: 'java'
-apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 group = 'org.rosetta'
@@ -30,8 +21,14 @@ dependencies {
     implementation 'org.xerial:sqlite-jdbc:3.25.2'
     implementation 'hikari-cp:hikari-cp:2.7.0'
 
-
     implementation 'org.yaml:snakeyaml:1.23'
 
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.9.8'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.8'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.9.8'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.assertj:assertj-core:3.11.1'
+
+    runtimeOnly 'org.springframework.boot:spring-boot-devtools'
 }
